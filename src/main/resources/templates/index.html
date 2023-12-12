@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>The Coffee Zone</title>
+    <link rel="stylesheet" th:href="@{style.css}">
+</head>
+<body>
+<nav>
+    <ul>
+        <li><a th:href="@{index}">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Menu</a></li>
+        <li><a th:href="@{clientTable}">Services</a></li>
+        <li><a href="#">Contact us</a></li>
+    </ul>
+</nav>
+<header>
+    <h1>The Coffee Zone</h1>
+    <p>consectetur adipiscing elit. Aliquam sed dapibus. Quisque ut risus nec lacus</p>
+    <button>View Menu</button>
+</header>
+</body>
+</html>
