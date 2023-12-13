@@ -1,6 +1,6 @@
-package mpu.exam.ShopCoffee.service;
+package mpu.exam.thecoffeeshop.service;
 
-import mpu.exam.ShopCoffee.model.ClientTable;
+import mpu.exam.thecoffeeshop.model.ClientTable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

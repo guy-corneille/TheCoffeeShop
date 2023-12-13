@@ -1,4 +1,4 @@
-package com.example.thecoffeeshop;
+package mpu.exam.thecoffeeshop;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

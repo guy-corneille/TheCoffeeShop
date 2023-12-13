@@ -1,7 +1,8 @@
-package mpu.exam.ShopCoffee.service;
+package mpu.exam.thecoffeeshop.service;
 
-import mpu.exam.ShopCoffee.model.ClientTable;
-import mpu.exam.ShopCoffee.repository.ClientTableRepo;
+import mpu.exam.thecoffeeshop.model.ClientTable;
+import mpu.exam.thecoffeeshop.repository.ClientTableRepo;
+import mpu.exam.thecoffeeshop.model.ClientTable;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,7 +19,7 @@ public class ClientTableService {
         this.clientTableRepo = clientTableRepo;
     }
 
-    public ResponseEntity<List<ClientTable>>  getClientTables(){
+    public ResponseEntity<List<ClientTable>> getClientTables(){
     try {
         return new ResponseEntity<>(clientTableRepo.findAll(), HttpStatus.OK);
 

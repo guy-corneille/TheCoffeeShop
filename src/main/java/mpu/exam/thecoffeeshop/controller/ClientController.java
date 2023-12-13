@@ -1,7 +1,7 @@
-package mpu.exam.ShopCoffee.controller;
+package mpu.exam.thecoffeeshop.controller;
 
-import mpu.exam.ShopCoffee.model.ClientTable;
-import mpu.exam.ShopCoffee.service.ClientService;
+import mpu.exam.thecoffeeshop.model.ClientTable;
+import mpu.exam.thecoffeeshop.service.ClientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

@@ -1,4 +1,4 @@
-package mpu.exam.ShopCoffee.model;
+package mpu.exam.thecoffeeshop.model;
 
 
 import jakarta.persistence.*;

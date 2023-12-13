@@ -13,7 +13,7 @@
     <h2 class="mb-4">Category Page</h2>
 
     <div class="mb-3">
-        <a th:href="@{/add}" class="btn btn-primary">Add Category</a>
+        <a th:href="@{/admin/categories/add}" class="btn btn-primary">Add Category</a>
     </div>
 
     <table class="table">
@@ -21,7 +21,7 @@
         <tr>
             <th scope="col">SN</th>
             <th scope="col">Category Name</th>
-            <th scope="col">Edit</th>
+            <th scope="col">Update</th>
             <th scope="col">Delete</th>
         </tr>
         </thead>
@@ -29,17 +29,20 @@
         <!-- Iterate over your category data and populate the table -->
         <!-- Example data -->
         <tr th:each="category, iterStat : ${categories}">
-            <td th:text="${iterStat.index + 1}"></td>
-            <td th:text="${category.name}"></td>
+            <th scope="row" th:text="${iterStat.index + 1}">1</th>
+            <td th:text="${category.name}">larry</td>
             <td>
-                <a th:href="@{'/edit/' + ${category.id}}" class="btn btn-warning">Edit</a>
+                <a th:href="@{/admin/categories/update/{id} (id = ${category.id})}" class="btn btn-warning">Edit</a>
             </td>
             <td>
-                <a th:href="@{'/delete/' + ${category.id}}" class="btn btn-danger">Delete</a>
+                <a th:href="@{/admin/categories/delete/{id} (id = ${category.id})}" class="btn btn-danger">Delete</a>
             </td>
         </tr>
         </tbody>
     </table>
+</div>
+<div class="mt-3">
+    <a th:href="@{/admin}" class="btn btn-secondary">Back to main page</a>
 </div>
 
 <!-- Bootstrap JS and Popper.js -->

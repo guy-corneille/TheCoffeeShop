@@ -3,19 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <title>Client Form</title>
-    <link rel="stylesheet" type="text/css" th:href="@{styles.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{../static/Css/styleClient.css}">
 </head>
 <body>
+<nav>
+    <ul>
+        <li><a th:href="@{index}">Home</a></li>
+        <li><a href="#">About</a></li>
+        <li><a href="#">Menu</a></li>
+        <li><a th:href="@{/clients}">Services</a></li>
+        <li><a href="#">Contact us</a></li>
+    </ul>
+</nav>
 
-<form class="row g-3" th:action="@{/clients/new}" method="post" th:object="${clientTable}">
-    <div class="col-12">
-        <label for="categoryCode" class="form-label">Category Code:</label>
-        <input type="text" class="form-control" id="categoryCode" name="categoryCode" th:field="*{categoryCode}" required>
-    </div>
-    <div class="col-12">
-        <label for="categoryName" class="form-label">Category Name:</label>
-        <input type="text" class="form-control" id="categoryName" name="categoryName" th:field="*{categoryName}" required>
-    </div>
+<form th:action="@{/clients/new}" method="post" th:object="${clientTable}">
+
+    <label for="fullNames">Full Names:</label>
+    <input type="text" id="fullNames" name="fullNames" th:field="*{fullNames}" required>
+
+    <label for="email">Email:</label>
+    <input type="text" id="email" name="email" th:field="*{email}" required>
+
+    <label for="phone">Phone:</label>
+    <input type="text" id="phone" name="phone" th:field="*{phone}" required>
+
+    <label for="nber">Number:</label>
+    <input type="number" id="nber" name="nber" th:field="*{nber}" required>
+
+    <label for="date">Date:</label>
+    <input type="date" id="date" name="date" th:field="*{theDate}" required>
+
+    <label for="suggestion">Suggestion:</label>
+    <textarea id="suggestion" name="suggestion" th:field="*{suggestion}" rows="4" required></textarea>
 
     <div class="text-center">
         <button type="submit" class="btn btn-primary">Submit</button>

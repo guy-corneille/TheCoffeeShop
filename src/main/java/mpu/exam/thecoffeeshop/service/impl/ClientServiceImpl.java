@@ -1,8 +1,8 @@
-package mpu.exam.ShopCoffee.service.impl;
+package mpu.exam.thecoffeeshop.service.impl;
 
-import mpu.exam.ShopCoffee.model.ClientTable;
-import mpu.exam.ShopCoffee.repository.ClientTableRepo;
-import mpu.exam.ShopCoffee.service.ClientService;
+import mpu.exam.thecoffeeshop.model.ClientTable;
+import mpu.exam.thecoffeeshop.repository.ClientTableRepo;
+import mpu.exam.thecoffeeshop.service.ClientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
