@@ -40,13 +40,14 @@
             <input type="file" class="form-control" id="productImage" name="productImage" accept="image/*" onchange="previewImage(this)">
         </div>
         <div class="form-group">
-            <img src="#" id="imgPreview" height="100px" width="100px" alt="Image Preview">
+            <img src="" id="imgPreview" height="100px" width="100px" alt="Image Preview">
+            <input type="hidden" name="imgName" th:value="${productsDTO.imageName}">
         </div>
         <div class="mb-3">
             <label for="description" class="form-label">Description</label>
             <textarea class="form-control" id="description" name="description" required th:field="*{description}"></textarea>
         </div>
-        <input type="hidden" name="imgName" th:value="${productsDTO.imageName}">
+
 
         <button type="submit" class="btn btn-success">Save</button>
     </form>

@@ -78,42 +78,61 @@ public String product(Model model){
 
 }
     @GetMapping("/admin/products/add")
-    public String productAddGet(Model model){
-        model.addAttribute("productsDTO",
-                new ProductDTO());
+    public String productAddGet(Model model) {
+        model.addAttribute("productsDTO", new ProductDTO());
         model.addAttribute("categories", categoryService.getAllCategory());
-
         return "productsAdd";
-
     }
     @PostMapping("/admin/products/add")
-    public String productAddPost(@ModelAttribute("productDTO")ProductDTO productDTO,
-                                 @RequestParam("productImage")MultipartFile file,
-                                 @RequestParam("imgName") String imgName)
-            throws IOException{
+    public String productAddPost(@ModelAttribute("productsDTO") ProductDTO productDTO,
+                                 @RequestParam("productImage") MultipartFile file,
+                                 @RequestParam("imgName") String imgName) throws IOException {
         Product product = new Product();
         product.setId(productDTO.getId());
         product.setName(productDTO.getName());
-        // Assuming getCategoryId returns an Integer
-       /* Integer categoryId = ;*/
-//        if (categoryId != null) {
         product.setCategory(categoryService.getCategoryById(productDTO.getCategoryId()).get());
         product.setPrice(productDTO.getPrice());
         product.setWeight(productDTO.getWeight());
         product.setDescription(productDTO.getDescription());
         String imageUUID;
-        if (!file.isEmpty()){
+        if (!file.isEmpty()) {
             imageUUID = file.getOriginalFilename();
             Path fileNameAndPath = Paths.get(uploadDir, imageUUID);
-
             Files.write(fileNameAndPath, file.getBytes());
-        }else {
+        } else {
             imageUUID = imgName;
         }
-product.setImageName(imageUUID);
+        product.setImageName(imageUUID);
         productService.addProduct(product);
 
-        return"redirect:/admin/products";
+        return "redirect:/admin/products";
     }
 
-}
+    @GetMapping("/admin/products/delete/{id}")
+    public String deleteProd(@PathVariable Long id){
+        productService.removeProductById(id);
+        return "redirect:/admin/products";
+
+    }
+    @GetMapping("/admin/products/update/{id}")
+    public String updateProductGet(@PathVariable long id, Model model) {
+        Product product = productService.getProductById(id).get();
+        ProductDTO productDTO = new ProductDTO();
+        productDTO.setId(product.getId());
+        productDTO.setName(product.getName());
+        productDTO.setCategoryId(product.getCategory().getId());
+        productDTO.setPrice(product.getPrice());
+        productDTO.setWeight(product.getWeight());
+        productDTO.setDescription(product.getDescription());
+        productDTO.setImageName(product.getImageName());
+
+        model.addAttribute("categories", categoryService.getAllCategory());
+        model.addAttribute("productsDTO", productDTO);
+
+        return "productsAdd";
+    }
+
+
+    }
+
+
